@@ -1,0 +1,95 @@
+<div class="fullbox">
+<section>
+  <div class="Mainheading">
+    <h2 id="Mainheading">Display Charts </h2>
+  </div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div style="display: flex;">
+  <label for="graphType">Select Graph Type:</label>&nbsp;&nbsp; 
+  <!-- <div *ngIf="this.myForm.value.graphType.errors?.['required'] || this.myForm.value.graphType.touched">Name is required.</div> -->
+  <div style="color: red;">*Mandatory</div>
+  <div *ngIf="this.myForm.errors?.['required']">Name is required.</div>
+</div>
+  <select id="graphType" formControlName="graphType" multiple required> 
+    <option value="">--choose--</option>
+    <option value="PieChart">Pie Chart</option>
+    <option value="BarChart">Bar Chart</option>
+    <option value="DonutChart">Donut Chart</option>
+    <option value="curveChart">Curve Chart</option>
+    <option value="AreaChart">Area Chart</option>
+    <option value="HistogramChart">Histogram Chart</option>
+    <option value="SteppedChart">Stepped Chart</option>
+    <option value="PyramidChart">PyramidChart</option>    
+  </select>
+
+
+  <label for="allnames">Select a Student:</label>
+  <select id="allnames" formControlName="AllNames">
+    <option value="" selected>--choice--</option>
+  <option *ngFor="let item of allnames">{{ item }}</option>
+  </select>
+  <div class="colours-size"></div>
+  <div id="colours"></div>
+  <table formGroupName="selectedColors">
+
+    <tr>
+      <td><label for="colourvalue1">Enter your First Colour</label></td>
+      <td> <input type="text" id="colourvalue1" formControlName="colourvalue1"></td>
+    </tr>
+    <tr> 
+      <td><label for="colourvalue2">Enter your Second Colour</label></td>
+      <td> <input type="text" id="colourvalue2" formControlName="colourvalue2"> </td>
+    </tr>
+    <tr>
+      <td><label for="colourvalue3">Enter your Third Colour</label></td>
+      <td> <input type="text" id="colourvalue3" formControlName="colourvalue3"></td>
+    </tr>
+    <tr>
+      <td><label for="colourvalue4">Enter your Forth Colour</label></td>
+      <td> <input type="text" id="colourvalue4" formControlName="colourvalue4"></td>
+    </tr>
+    <tr>
+      <td><label for="colourvalue5">Enter your Fifth Colour</label></td>
+      <td> <input type="text" id="colourvalue5" formControlName="colourvalue5"></td>
+    </tr>
+  </table>
+
+<div id="Size">
+  <table>
+    <tr>
+      <td>
+        <label for="Enter_Height">Height</label>
+      </td>
+      <td>
+        <input type="text" id="Enter_Height" formControlName="HeightChange">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="Enter_Width">Width</label>
+      </td>
+      <td>
+        <input type="text" id="Enter_Width" formControlName="WidthChange">
+      </td>
+    </tr>
+  </table>
+</div>
+  <div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+</section>
+<div  [ngStyle]="{ 'Width':400 }">
+    
+
+<div class="modal" id="divPieChart"  [ngStyle]="{ 'display': PieChartvisible ? 'flex' : 'none' }"> </div>
+
+<td><div class="modal" id="divbarchart"  [ngStyle]="{ 'display': BarChartvisible ? 'flex' : 'none'}"></div></td>
+<td><div class="modal" id="divDonutChart"  [ngStyle]="{ 'display': DonutChartvisible ? 'flex' : 'none'}"></div></td>
+<td><div class="modal" id="divcurvechart"  [ngStyle]="{ 'display': curveChartvisible ? 'flex' : 'none'}"></div></td>
+<td><div id="divAreachart"  [ngStyle]="{ 'display': AreaChartvisible ? 'flex' : 'none'}"></div></td>
+<td><div class="modal" id="divHistogramChart"  [ngStyle]="{ 'display': HistogramChartvisible ? 'flex' : 'none'}"></div></td>
+<td><div class="modal" id="divPyramidChart"  [ngStyle]="{ 'display': PyramidicalChartvisible ? 'flex' : 'none'}" ></div></td>
+<td><div class="modal" id="divSteppedChart"  [ngStyle]="{ 'display': SteppedChartvisible ? 'flex' : 'none'}"></div></td>
+</div>
+</div>
